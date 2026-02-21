@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium Dynamic Quote Generator that allows users to explore and add quotes.">
+    <title>Dynamic Quote Generator | Wisdom at Your Fingertips</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glass"></div>
+    <main class="container">
+        <h1>Dynamic Quote Generator</h1>
+
+        <div id="syncStatus" class="sync-notification"></div>
+
+
+        <div class="filter-container card">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" onchange="filterQuotes()">
+                <option value="all">All Categories</option>
+                <!-- Dynamically populated categories -->
+            </select>
+        </div>
+
+
+        <section id="quote-box" class="card">
+            <div id="quoteDisplay" class="quote-content">
+                <p class="quote-text">Click the button to get inspired!</p>
+                <p class="quote-category"></p>
+            </div>
+            <button id="newQuote" class="btn btn-primary">Show New Quote</button>
+        </section>
+
+        <section class="card add-quote-section">
+            <h2>Add a New Quote</h2>
+            <div class="input-group">
+                <input id="newQuoteText" type="text" placeholder="Enter a new quote" aria-label="Quote Text" />
+                <input id="newQuoteCategory" type="text" placeholder="Enter quote category"
+                    aria-label="Quote Category" />
+            </div>
+            <button onclick="addQuote()" class="btn btn-secondary">Add Quote</button>
+        </section>
+
+        <section class="card data-management">
+            <h2>Data Management</h2>
+            <div class="data-buttons">
+                <button onclick="exportToJsonFile()" class="btn btn-primary">Export Quotes</button>
+                <div class="import-container">
+                    <label for="importFile" class="btn btn-secondary">Import Quotes</label>
+                    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
